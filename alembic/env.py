@@ -23,6 +23,7 @@ from app.models.base import Base
 from app.models.author import Author
 from app.models.book import Book
 from app.models.user import User
+from app.models.order import Order
 target_metadata = Base.metadata
 
 # Чтение URL из .env (можно и напрямую из config.get_main_option("sqlalchemy.url"))
