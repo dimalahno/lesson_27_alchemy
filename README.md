@@ -1,0 +1,30 @@
+## Задача 1: Оптимизация загрузки данных
+Созданы две связанные модели:
+Author (id, name)
+Book (id, title, author_id) — связь один ко многим с Author
+
+Ленивая загрузка (Lazy)
+Используется selectinload, чтобы подгрузить книги только при обращении к author.books. Генерируются 2 отдельных SQL-запроса:
+- SELECT * FROM authors WHERE id = 1;
+- SELECT * FROM books WHERE author_id = 1;
+
+Жадная загрузка (Eager)
+Используется joinedload(Author.books) — данные автора и его книг извлекаются одним JOIN-запросом:
+- SELECT authors.*, books.* 
+FROM authors LEFT OUTER JOIN books ON authors.id = books.author_id 
+WHERE authors.id = 1;
+
+## Задача 4: Паттерн Repository
+Создан класс BookRepository, инкапсулирующий доступ к данным модели Book:
+- add_book(book_data: BookCreate) — добавление новой книги
+- get_books_by_author_id(author_id: int) — получение всех книг конкретного автора
+- delete_book_by_id(book_id: int) — удаление книги по идентификатору
+
+Это изолирует бизнес-логику от слоя доступа к данным и облегчает тестирование.
+
+Реализована асинхронная фабрика сессий на основе async_sessionmaker
+
+Написаны базовые тесты для проверки работы репозитория (в том числе с использованием тестовой базы и транзакций):
+- Добавление новой книги и проверка наличия
+- Получение всех книг определённого автора
+- Удаление книги и проверка отсутствия
