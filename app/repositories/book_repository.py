@@ -18,7 +18,7 @@ class BookRepository:
     async def get_books_by_author_id(self, author_id: int) -> list[Book]:
         stmt = select(Book).where(Book.author_id == author_id)
         result = await self.session.execute(stmt)
-        return result.scalar().all()
+        return result.scalars().all()
 
     async def delete_book_by_id(self, book_id: int) -> None:
         stmt = delete(Book).where(Book.id == book_id)
