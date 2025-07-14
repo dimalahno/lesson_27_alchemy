@@ -37,6 +37,7 @@
     <connection id="1f4788ba-9b2d-4f4e-8fec-19ea7641b63a" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="1f4788ba-9b2d-4f4e-8fec-19ea7641b63a" dataset="public.users" active-filter-id="" />
     <filter-actions connection-id="1f4788ba-9b2d-4f4e-8fec-19ea7641b63a" dataset="public.books" active-filter-id="93c2dc86-f684-40f5-87f7-e7a61f64a30f">
       <filter id="93c2dc86-f684-40f5-87f7-e7a61f64a30f" name="get_all_books" temporary="false" custom-name="true" type="basic" join-type="AND" />
     </filter-actions>

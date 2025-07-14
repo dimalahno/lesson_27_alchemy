@@ -14,6 +14,15 @@ Book (id, title, author_id) — связь один ко многим с Author
 FROM authors LEFT OUTER JOIN books ON authors.id = books.author_id 
 WHERE authors.id = 1;
 
+## Задача 2: Транзакции и откаты
+
+- Создана таблица `User` с полями `id`, `username`, `email`.
+- Добавлены 2 пользователя в рамках транзакции.
+- Имитация ошибки (дублирующий `username`) вызывает `IntegrityError`.
+- При ошибке вызывается `rollback()`, и данные не сохраняются в БД.
+
+Транзакция гарантирует целостность и откат всех операций при сбое.
+
 ## Задача 4: Паттерн Repository
 Создан класс BookRepository, инкапсулирующий доступ к данным модели Book:
 - add_book(book_data: BookCreate) — добавление новой книги
