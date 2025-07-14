@@ -9,3 +9,5 @@ class Author(Base):
     name = Column(String, nullable=False)
 
     books = relationship("Book", back_populates="author", cascade="all, delete-orphan")
+
+from app.models.book import Book

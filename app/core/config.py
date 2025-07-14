@@ -1,5 +1,8 @@
+from dotenv import load_dotenv
 from pydantic.v1 import BaseSettings
 
+# Явная загрузка .env файла перед использованием переменных
+load_dotenv()
 
 class Settings(BaseSettings):
     DB_USER: str
