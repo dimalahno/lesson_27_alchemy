@@ -1,4 +1,6 @@
+from typing import List
 from pydantic import BaseModel
+from app.schemas.book import BookRead
 
 
 class AuthorCreate(BaseModel):
@@ -11,3 +13,6 @@ class AuthorRead(BaseModel):
 
     class Config:
         orm_mode = True
+
+class AuthorReadWithBooks(AuthorRead):
+    books: List[BookRead] = []
